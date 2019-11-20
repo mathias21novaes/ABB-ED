@@ -6,16 +6,12 @@ public class Teste {
         
         ABB tree= new ABB();
         
+        tree.insere(2);
         tree.insere(8);
         tree.insere(5);
-        tree.insere(2);
-        tree.insere(7);
         tree.insere(9);
-        tree.insere(14);
-        tree.insereRecursiva(10);
-        tree.insereRecursiva(20);
-        tree.insere(6);
-        tree.insere(3);
+        tree.insereRecursiva(3);
+        tree.insere(7);
         
         tree.preOrdem();
         System.out.println("");
@@ -49,7 +45,17 @@ public class Teste {
         System.out.println("Altura da arvore:");
         System.out.println(tree.alturaRecursiva());
         
-        System.out.println("Altura da arvore:");
-        System.out.println(tree.altura());
+        //System.out.println("Altura da arvore:");
+        //System.out.println(tree.altura());
+        
+        
+        System.out.println("");
+        tree.folhas();
+        //2 8 5 9 3 7
+        
+        //1 3 8 6 5 7 10 12 13 14
+        System.out.println(tree.paiNo(5));
+
+        tree.paiNo(7);
     }
 }

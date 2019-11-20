@@ -220,35 +220,8 @@ public class ABB {
             }
         }
     }
-  
-    //ALTURA INTERATIVA
-    /*public int altura(){
-        return altura(raiz);
-    }
-
-    public int altura(No p){
-        int contEsq = 0;
-        int contDir = 0;
-        
-        while(p != null){
-            if(p.getEsq() != null){
-                p = p.getEsq();
-                contEsq++;
-            }
-            if(p.getDir() != null){
-                p = p.getDir();
-                contDir++;
-            }
-        }
-        if(p == null || (p.getEsq() == null && p.getDir() == null)) {
-            return 0;
-        }
-        if(contEsq > contDir){
-            return contEsq;
-        } else{
-            return contDir;
-        }
-    }*/
+    
+    
     
     //CONTA NUMEROS DE NÓS DA ABB
     public int contarNos(){
@@ -263,5 +236,85 @@ public class ABB {
             return 1 + contarNos(p.getEsq()) + contarNos(p.getDir());
         }
     }
+    
+    
+    
+    //FOLHAS DA ÁRVORES
+    public void folhas(){
+        folhas(raiz);
+    }
+    
+    public void folhas(No p){
+        if(p!=null){
+            if((p.getEsq() == null)&&(p.getDir() == null)){
+                System.out.print(p.getElemento()+", ");
+            }
+            else{
+                folhas(p.getEsq());
+                folhas(p.getDir());
+            }  
+        }
+    }
 
+    
+    
+    //PAI DE UM NÓ
+    public int paiNo(int elemento){
+        No auxRaiz = this.raiz;
+        int sucessor=0;
+       
+       while(auxRaiz!=null){
+           if(elemento>auxRaiz.getElemento()){
+               sucessor = auxRaiz.getElemento();
+               auxRaiz = auxRaiz.getDir();
+           }else if(elemento<auxRaiz.getElemento()){
+               sucessor= auxRaiz.getElemento();
+               auxRaiz = auxRaiz.getEsq();
+           }else{
+               return sucessor;
+           }
+
+       }
+       return 0;
+    }
+    
+    
+    
+    //NO ANTERIOR - fazer mudanças
+    public int anterior(int elemento){
+       No auxRaiz = this.raiz;
+       int anterior=0;
+       
+       while(auxRaiz!=null){
+           if(elemento>auxRaiz.getElemento()){
+               anterior= auxRaiz.getElemento();
+               auxRaiz = auxRaiz.getDir();
+               
+           }else if(elemento<auxRaiz.getElemento()){
+               
+               auxRaiz = auxRaiz.getEsq();
+           }else{
+               auxRaiz = auxRaiz.getDir();
+           }
+       }
+        return anterior;
+    }
+    //NO SUCESSOR - fazer mudanças
+    public int sucessor(int elemento){
+       No auxRaiz = this.raiz;
+       int sucessor=0;
+       
+       while(auxRaiz!=null){
+           if(elemento>auxRaiz.getElemento()){
+               auxRaiz = auxRaiz.getDir();
+           }else if(elemento<auxRaiz.getElemento()){
+               sucessor= auxRaiz.getElemento();
+               auxRaiz = auxRaiz.getEsq();
+           }else{
+               auxRaiz = auxRaiz.getDir();
+           }
+           
+       }
+        return sucessor;
+    }
 }
