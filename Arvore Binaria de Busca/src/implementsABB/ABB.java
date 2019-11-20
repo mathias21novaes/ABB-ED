@@ -259,23 +259,23 @@ public class ABB {
     
     
     //PAI DE UM NÓ
-    public int paiNo(int elemento){
-        No auxRaiz = this.raiz;
-        int sucessor=0;
+    public void paiNo(int elemento){
+        No aux = raiz;
+        int pai = 0;
        
-       while(auxRaiz!=null){
-           if(elemento>auxRaiz.getElemento()){
-               sucessor = auxRaiz.getElemento();
-               auxRaiz = auxRaiz.getDir();
-           }else if(elemento<auxRaiz.getElemento()){
-               sucessor= auxRaiz.getElemento();
-               auxRaiz = auxRaiz.getEsq();
-           }else{
-               return sucessor;
-           }
-
-       }
-       return 0;
+       while(aux != null){
+           if(elemento < aux.getElemento()){
+               pai= aux.getElemento();
+               aux = aux.getEsq();
+            }else if(elemento > aux.getElemento()){
+               pai = aux.getElemento();
+               aux = aux.getDir();
+            }else{
+               System.out.println("ELEMENTO: "+elemento);
+               System.out.println("PAI DO ELEMENTO: "+pai);
+               break;
+            }
+        }
     }
     
     

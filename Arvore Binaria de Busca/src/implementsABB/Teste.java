@@ -10,8 +10,19 @@ public class Teste {
         tree.insere(8);
         tree.insere(5);
         tree.insere(9);
-        tree.insereRecursiva(3);
+        tree.insere(3);
         tree.insere(7);
+        
+//        tree.insereRecursiva(1);
+//        tree.insereRecursiva(3);
+//        tree.insereRecursiva(8);
+//        tree.insereRecursiva(6);
+//        tree.insereRecursiva(5);
+//        tree.insereRecursiva(7);
+//        tree.insereRecursiva(10);
+//        tree.insereRecursiva(12);
+//        tree.insereRecursiva(13);
+//        tree.insereRecursiva(14);
         
         tree.preOrdem();
         System.out.println("");
@@ -45,17 +56,11 @@ public class Teste {
         System.out.println("Altura da arvore:");
         System.out.println(tree.alturaRecursiva());
         
-        //System.out.println("Altura da arvore:");
-        //System.out.println(tree.altura());
-        
-        
-        System.out.println("");
+        System.out.println("NÓS FOLHAS DA ARVORE");
         tree.folhas();
-        //2 8 5 9 3 7
+        System.out.println("");
         
-        //1 3 8 6 5 7 10 12 13 14
-        System.out.println(tree.paiNo(5));
+       tree.paiNo(5);
 
-        tree.paiNo(7);
     }
 }
