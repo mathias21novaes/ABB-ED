@@ -4,14 +4,13 @@ public class ABB {
     
     private No raiz;
     
-    //CRIA UMA ABB VAZIA
+    //Inicializa uma Arvore Binaria de Busca vazia
     public ABB() {
         this.raiz = null;
     }
     
-    
-    
-    //INSERÇÃO INTERATIVA
+     
+    //Insere um elemento na Arvore Binaria de Busca de forma interativa
     public void insere(int elemento){
         No p = raiz;
         No pai = null;
@@ -36,8 +35,7 @@ public class ABB {
     }
     
     
-    
-    //INSERÇÃO RECURSIVA
+    //Insere um elemento na Arvore Binaria de Busca de forma recursiva
     public void insereRecursiva(int elemento){
         if (raiz == null) {
             raiz = new No(elemento,null,null);
@@ -46,7 +44,6 @@ public class ABB {
             insereRecursiva(raiz,novo);
         }
     }
-    
     public void insereRecursiva(No p, No novo){
         if(novo.getElemento()<p.getElemento())
             if (p.getEsq()==null)
@@ -61,118 +58,10 @@ public class ABB {
     }
 
     
-    //PERCURSO PRE-ORDEM
-    public void preOrdem(){
-        preOrdem(raiz);
-    }
-
-    private void preOrdem(No p) {
-        if(p!=null){
-            System.out.print(p.getElemento()+", ");
-            preOrdem(p.getEsq());
-            preOrdem(p.getDir());
-        }
-    }
-    
-  
-    
-    //PERCURSO IN-ORDEM
-    public void inOrdem(){
-        inOrdem(raiz);
-    }
-
-    private void inOrdem(No p) {
-        if(p!=null){
-            inOrdem(p.getEsq());
-            System.out.print(p.getElemento()+", ");
-            inOrdem(p.getDir());
-        }
-    }
-    
-    
-    
-    //PERCURSO POS-ORDEM
-    public void posOrdem(){
-        posOrdem(raiz);
-    }
-
-    private void posOrdem(No p) {
-        if(p!=null){
-            posOrdem(p.getEsq());
-            posOrdem(p.getDir());
-            System.out.print(p.getElemento()+", ");
-        }
-    }
-    
-    
-    
-     
-    //BUSCA RECURSIVA
-    public No buscaRecursiva(int elemento){
-        return buscaRecursiva(raiz, elemento);
-    }
-     
-    public No buscaRecursiva(No p, int elemento){
-        if(p == null|| elemento== p.getElemento()){
-            return p;
-        }
-        if(elemento < p.getElemento())
-            return buscaRecursiva(p.getEsq(), elemento);
-        else
-            return buscaRecursiva(p.getDir(), elemento);
-    }
-    
-     
-  
-    //BUSCA INTERATIVA
-    public No buscaInter(int elemento){
-        No p = raiz;
-        while(p!=null){
-            if(elemento == p.getElemento())
-                return p;
-            if(elemento < p.getElemento())
-                p = p.getEsq();
-            else
-                p = p.getDir();
-        }
-        return p;
-    }
-    
-    
-    
-    //MAIOR NO INTERATIVO
-    public No maiorNo(){
-        return maiorNo(raiz);
-    }
-    
-    public No maiorNo(No p){
-        while(p.getDir() != null){
-            p = p.getDir();
-        }
-        return p;
-    }
-    
-    
-    
-    //MENOR NO RECURSIVO
-    public No menorNo(){
-        return menorNo(raiz);
-    }
-    
-    public No menorNo(No p){
-        if(p.getEsq() == null){
-            return p;
-        }
-        return menorNo(p.getEsq());
-    }
-    
-    
-    
-    //REMOÇÃO ABB RECURSIVA
+    //Remove um elemento da Arvore Binaria de Busca de forma recursiva
     public void remove(int elemento){
         remove(raiz, elemento);
     }
-    //conferrir o remover
     public No remove(No p, int elemento){
         if(p == null)
         {
@@ -201,6 +90,101 @@ public class ABB {
         }
         return p;
     }
+    
+    
+    //Percore a Arvore Binaria de Bsuca em Pré Ordem (Raiz - Esquerda - Direita)
+    public void preOrdem(){
+        preOrdem(raiz);
+    }
+    private void preOrdem(No p) {
+        if(p!=null){
+            System.out.print(p.getElemento()+", ");
+            preOrdem(p.getEsq());
+            preOrdem(p.getDir());
+        }
+    }
+    
+  
+    //Percorre a Arvore Binaria de Busca em In Ordem (Esquerda - Raiz - Direita)
+    public void inOrdem(){
+        inOrdem(raiz);
+    }
+    private void inOrdem(No p) {
+        if(p!=null){
+            inOrdem(p.getEsq());
+            System.out.print(p.getElemento()+", ");
+            inOrdem(p.getDir());
+        }
+    }
+    
+    
+    //Percrre a Arvore Binaria de Busca em Pós Ordem (Esquerda - Direita - Raiz)
+    public void posOrdem(){
+        posOrdem(raiz);
+    }
+    private void posOrdem(No p) {
+        if(p!=null){
+            posOrdem(p.getEsq());
+            posOrdem(p.getDir());
+            System.out.print(p.getElemento()+", ");
+        }
+    }
+    
+
+    //Busca um elemento na Arvore Binaria de Busca de forma Recursiva
+    public No buscaRecursiva(int elemento){
+        return buscaRecursiva(raiz, elemento);
+    }    
+    public No buscaRecursiva(No p, int elemento){
+        if(p == null|| elemento== p.getElemento()){
+            return p;
+        }
+        if(elemento < p.getElemento())
+            return buscaRecursiva(p.getEsq(), elemento);
+        else
+            return buscaRecursiva(p.getDir(), elemento);
+    }
+    
+    
+    //Busca um elemento na Arvore Binaria de Busca de forma Interativa
+    public No buscaInter(int elemento){
+        No p = raiz;
+        while(p!=null){
+            if(elemento == p.getElemento())
+                return p;
+            if(elemento < p.getElemento())
+                p = p.getEsq();
+            else
+                p = p.getDir();
+        }
+        return p;
+    }
+    
+    
+    //MAIOR NO INTERATIVO
+    public No maiorNo(){
+        return maiorNo(raiz);
+    }
+    public No maiorNo(No p){
+        if(p.getDir() == null){
+            return p;
+        }
+        return maiorNo(p.getDir());
+    }
+    
+    
+    //MENOR NO RECURSIVO
+    public No menorNo(){
+        return menorNo(raiz);
+    }
+    
+    public No menorNo(No p){
+        if(p.getEsq() == null){
+            return p;
+        }
+        return menorNo(p.getEsq());
+    }
+    
     
 
     

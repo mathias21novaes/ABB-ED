@@ -24,6 +24,19 @@ public class Teste {
 //        tree.insereRecursiva(13);
 //        tree.insereRecursiva(14);
         
+        System.out.println("Numero de nos da arvore");
+        System.out.println(tree.contarNos());
+        
+        
+        System.out.println("Altura da arvore:");
+        System.out.println(tree.alturaRecursiva());
+        
+        
+        System.out.println("NÓS FOLHAS DA ARVORE");
+        tree.folhas();
+        System.out.println("");
+        
+        
         tree.preOrdem();
         System.out.println("");
         tree.inOrdem();
@@ -32,13 +45,13 @@ public class Teste {
         System.out.println("");
         System.out.println("");
         
-        /*tree.remove(7);
+        tree.remove(7);
         tree.remove(5);
         tree.inOrdem();
         System.out.println("");
 
         
-        System.out.println(tree.buscaInter(14));
+        /*System.out.println(tree.buscaInter(14));
         System.out.println("");
         System.out.println(tree.buscaRecursiva(10));
         System.out.println("");
@@ -60,7 +73,12 @@ public class Teste {
         tree.folhas();
         System.out.println("");
         
-       tree.paiNo(5);
+       //tree.paiNo(5);
+        
+        /*System.out.println("MAIOR NÓ NA ARVORE");
+        tree.maiorNo();
+        System.out.println("MENOR NÓ NA ARVORE");
+        tree.menorNo();*/
 
     }
 }
