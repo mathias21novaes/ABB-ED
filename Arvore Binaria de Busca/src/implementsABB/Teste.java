@@ -11,74 +11,39 @@ public class Teste {
         tree.insere(5);
         tree.insere(9);
         tree.insere(3);
-        tree.insere(7);
+        tree.insere(7);        
         
-//        tree.insereRecursiva(1);
-//        tree.insereRecursiva(3);
-//        tree.insereRecursiva(8);
-//        tree.insereRecursiva(6);
-//        tree.insereRecursiva(5);
-//        tree.insereRecursiva(7);
-//        tree.insereRecursiva(10);
-//        tree.insereRecursiva(12);
-//        tree.insereRecursiva(13);
-//        tree.insereRecursiva(14);
         
-        System.out.println("Numero de nos da arvore");
+        System.out.println("------- DADOS DA ARVORE -------");
+        
+        System.out.print("NUMERO DE NOS: ");
         System.out.println(tree.contarNos());
         
-        
-        System.out.println("Altura da arvore:");
+        System.out.print("\nALTURA: ");
         System.out.println(tree.alturaRecursiva());
         
-        
-        System.out.println("NÓS FOLHAS DA ARVORE");
+        System.out.print("\nNÓS FOLHAS: ");
         tree.folhas();
-        System.out.println("");
+        
+        System.out.println("\n\nPAI DE UM NÓ: ");
+        tree.paiNo(5);
+        
+        System.out.print("\nANTECESSOR DE UM NÓ: ");
+        System.out.print(tree.anteriorNo(7));
+        
+        System.out.print("\n\nSUCESSOR DE UM NÓ: ");
+        System.out.print(tree.sucessorNo(7));
         
         
+        System.out.println("\n\n------- PERCURSOS -------");
+        System.out.println("PRÉ ORDEM");
         tree.preOrdem();
         System.out.println("");
+        System.out.println("IN ORDEM");
         tree.inOrdem();
         System.out.println("");
+        System.out.println("PÓS ORDEM");
         tree.posOrdem();
-        System.out.println("");
-        System.out.println("");
         
-        tree.remove(7);
-        tree.remove(5);
-        tree.inOrdem();
-        System.out.println("");
-
-        
-        /*System.out.println(tree.buscaInter(14));
-        System.out.println("");
-        System.out.println(tree.buscaRecursiva(10));
-        System.out.println("");
-        
-        System.out.println("menor elemento");
-        System.out.println(tree.menorNo());
-        System.out.println("");
-        System.out.println("");
-        System.out.println("maior elemento");
-        System.out.println(tree.maiorNo());*/
-        
-        System.out.println("Numero de nos da arvore");
-        System.out.println(tree.contarNos());
-        
-        System.out.println("Altura da arvore:");
-        System.out.println(tree.alturaRecursiva());
-        
-        System.out.println("NÓS FOLHAS DA ARVORE");
-        tree.folhas();
-        System.out.println("");
-        
-       //tree.paiNo(5);
-        
-        /*System.out.println("MAIOR NÓ NA ARVORE");
-        tree.maiorNo();
-        System.out.println("MENOR NÓ NA ARVORE");
-        tree.menorNo();*/
-
     }
 }

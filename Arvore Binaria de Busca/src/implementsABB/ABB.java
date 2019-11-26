@@ -161,7 +161,7 @@ public class ABB {
     }
     
     
-    //MAIOR NO INTERATIVO
+    //Mostra o maior NÓ da Arvore Binaria de Busca de forma Interativa
     public No maiorNo(){
         return maiorNo(raiz);
     }
@@ -173,11 +173,10 @@ public class ABB {
     }
     
     
-    //MENOR NO RECURSIVO
+    //Mostra o menor NÓ da Arvore Binaria de Busca de forma Recursiva
     public No menorNo(){
         return menorNo(raiz);
     }
-    
     public No menorNo(No p){
         if(p.getEsq() == null){
             return p;
@@ -186,13 +185,10 @@ public class ABB {
     }
     
     
-
-    
-    //ALTURA DA ABB RECURSIVA
+    //MosTra qual é altura da Arvore Binaria de Busca de forma Recursiva
     public int alturaRecursiva() {
         return alturaRecursiva(raiz);
     }
-
     public int alturaRecursiva(No p) {
         if (p == null || (p.getEsq() == null && p.getDir() == null)) {
           return 0;
@@ -206,12 +202,10 @@ public class ABB {
     }
     
     
-    
-    //CONTA NUMEROS DE NÓS DA ABB
+    //Conta o número de NÓS que a Arvore binária de busca possui
     public int contarNos(){
         return contarNos(raiz);
-    }
-    
+    }    
     public int contarNos(No p){
         if(p == null){
             return 0;
@@ -221,13 +215,11 @@ public class ABB {
         }
     }
     
-    
-    
-    //FOLHAS DA ÁRVORES
+ 
+    //Mostra os NÓS folha da Arvore Binaria de Busca em percurso In Ordem
     public void folhas(){
         folhas(raiz);
-    }
-    
+    }   
     public void folhas(No p){
         if(p!=null){
             if((p.getEsq() == null)&&(p.getDir() == null)){
@@ -240,9 +232,8 @@ public class ABB {
         }
     }
 
-    
-    
-    //PAI DE UM NÓ
+      
+    //Mostra o pai de um NÓ selecionado pelo usuário
     public void paiNo(int elemento){
         No aux = raiz;
         int pai = 0;
@@ -255,50 +246,54 @@ public class ABB {
                pai = aux.getElemento();
                aux = aux.getDir();
             }else{
-               System.out.println("ELEMENTO: "+elemento);
-               System.out.println("PAI DO ELEMENTO: "+pai);
+               System.out.println("PAI DO ELEMENTO "+elemento+" É: "+pai);
                break;
             }
         }
     }
     
     
-    
-    //NO ANTERIOR - fazer mudanças
-    public int anterior(int elemento){
-       No auxRaiz = this.raiz;
-       int anterior=0;
+    //Mostra o NÓ anterior de um NÓ selecionado pelo usuário
+    public int anteriorNo(int elemento){
+       No aux = raiz;
+       int anterior = 0;
        
-       while(auxRaiz!=null){
-           if(elemento>auxRaiz.getElemento()){
-               anterior= auxRaiz.getElemento();
-               auxRaiz = auxRaiz.getDir();
+       while(aux != null){
+           if(elemento > aux.getElemento()){
+               anterior = aux.getElemento();
+               aux = aux.getDir();               
+           }
+           else if(elemento < aux.getElemento()){
                
-           }else if(elemento<auxRaiz.getElemento()){
-               
-               auxRaiz = auxRaiz.getEsq();
-           }else{
-               auxRaiz = auxRaiz.getDir();
+               aux = aux.getEsq();
+           }
+           else{
+               aux = aux.getDir();
            }
        }
         return anterior;
     }
-    //NO SUCESSOR - fazer mudanças
-    public int sucessor(int elemento){
-       No auxRaiz = this.raiz;
-       int sucessor=0;
+    
+    
+    //Mostra o NÓ sucessor de um NÓ selecionado pelo usuário
+    public int sucessorNo(int elemento){
+       No aux = raiz;
+       int sucessor = 0;
        
-       while(auxRaiz!=null){
-           if(elemento>auxRaiz.getElemento()){
-               auxRaiz = auxRaiz.getDir();
-           }else if(elemento<auxRaiz.getElemento()){
-               sucessor= auxRaiz.getElemento();
-               auxRaiz = auxRaiz.getEsq();
+       while(aux != null){
+           if(elemento > aux.getElemento()){
+               aux = aux.getDir();
+           }
+           else if(elemento < aux.getElemento()){
+               sucessor = aux.getElemento();
+               aux = aux.getEsq();
            }else{
-               auxRaiz = auxRaiz.getDir();
+               aux = aux.getDir();
            }
            
        }
         return sucessor;
     }
+
 }
+
